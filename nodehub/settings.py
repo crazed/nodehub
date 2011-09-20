@@ -1,6 +1,6 @@
 import os
 
-ROOT_PATH = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 ENV = os.environ.get('DJANGO_ENV', 'dev')
 
 DEBUG = os.environ.get('DJANGO_DEBUG') == 'true' or ENV == 'dev'
@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'djangorestframework',
     'nodehub.apps.dns',
     'nodehub.apps.ip',
     'nodehub.apps.nodes',

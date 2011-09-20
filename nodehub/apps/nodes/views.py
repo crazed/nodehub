@@ -1,13 +1,6 @@
-import json
-from django import http
-from nodehub.apps.nodes import api
+from django.shortcuts import render_to_response, get_object_or_404
+from nodehub.apps.nodes import models
 
-def get(request, name):
-    try:
-        node = api.Node(name)
-    except api.NotFound:
-        raise http.Http404()
-    return http.HttpResponse(json.dumps(node.data()))
-
-def render(request, name):
-    return get(request, name)
+def node_detail(request, name):
+    n = get_object_or_404(models.Node, name=name)
+    return render_to_response('nodes/node_detail.html', {'node': n})

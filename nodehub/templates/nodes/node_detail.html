@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ node.name }} - {{ block.super }}{% endblock %}
+
+{% block body %}
+<h1>{{ node.name }}</h1>
+{% endblock %}

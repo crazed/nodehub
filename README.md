@@ -18,7 +18,7 @@ NodeHub is a datacenter management tool.
     source dev/bin/activate
 
     # Install dependencies
-    pip install --upgrade django ipaddr
+    pip install -Ur requirements.txt
 
     # Create database
     DJANGO_ENV=dev python nodehub/manage.py syncdb
