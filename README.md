@@ -3,33 +3,25 @@ NodeHub
 
 NodeHub is a datacenter management tool.
 
-### Requirements
-
-* [Python](http://www.python.org/) >= 2.6
-* [Django](https://www.djangoproject.com/) >= 1.3
-* [ipaddr](http://code.google.com/p/ipaddr-py/)
-
-## Development (setup)
+## Development
  
-    # Setup Python environment
+    # Setup Python env
     virtualenv dev
 
-    # Activate environment
+    # Activate env
     source dev/bin/activate
 
-    # Install dependencies
+    # Install deps
     pip install -Ur requirements.txt
 
-    # Create database
-    DJANGO_ENV=dev python nodehub/manage.py syncdb
+    # Set Django env
+    export DJANGO_ENV=dev
 
-## Development (run)
-
-    # Activate environment
-    source dev/bin/activate
+    # Sync database
+    python nodehub/manage.py syncdb
 
     # Run development server
-    DJANGO_ENV=dev python nodehub/manage.py runserver
+    python nodehub/manage.py runserver
 
 ### License
 
