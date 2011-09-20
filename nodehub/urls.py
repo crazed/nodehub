@@ -8,4 +8,6 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^api/nodes', include('nodehub.apps.nodes.urls_api')),
     (r'^', include('nodehub.apps.nodes.urls')),
+    (r'^api/dns', include('nodehub.apps.dns.urls_api')),
+    (r'^', include('nodehub.apps.dns.urls')),
 )
