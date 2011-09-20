@@ -9,7 +9,7 @@ class Node(models.BaseModel):
     class Meta:
         ordering = ['name']
 
-class NodeAttribute(models.AttributeModel):
+class NodeModifier(models.ModifierModel):
     node = models.ForeignKey(Node)
 
 class Interface(models.BaseModel):
@@ -38,5 +38,5 @@ class Group(models.BaseModel):
     class Meta:
         ordering = ['name']
 
-class GroupAttribute(models.AttributeModel):
+class GroupModifier(models.ModifierModel):
     group = models.ForeignKey(Group)

@@ -13,24 +13,26 @@ class NetworkInterface(admin.TabularInline):
     extra = 0
     filter_horizontal = ('links', 'ip_addresses')
 
-class NodeAttribute(admin.TabularInline):
-    model = models.NodeAttribute
-    fields = ('name', 'modifier', 'value', 'priority')
+class NodeModifier(admin.TabularInline):
+    model = models.NodeModifier
+    fields = ('name', 'operator', 'value', 'priority')
     extra = 0
 
 class Node(admin.ModelAdmin):
     fields = ('name',)
     list_display = ('name',)
-    inlines = [NetworkInterface, Interface, NodeAttribute]
+    inlines = [NetworkInterface, Interface, NodeModifier]
 
-class GroupAttribute(admin.TabularInline):
-    model = models.GroupAttribute
-    fields = ('name', 'modifier', 'value', 'priority')
+class GroupModifier(admin.TabularInline):
+    model = models.GroupModifier
+    fields = ('name', 'operator', 'value', 'priority')
     extra = 0
 
 class Group(admin.ModelAdmin):
     fields = ('name', 'nodes')
     list_display = ('name',)
+    filter_horizontal = ('nodes',)
+    inlines = [GroupModifier]
 
 admin.site.register(models.Node, Node)
 admin.site.register(models.Group, Group)

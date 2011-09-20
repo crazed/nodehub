@@ -89,18 +89,18 @@ class BaseModel(TimestampModel):
     class Meta:
         abstract = True
 
-class AttributeModel(BaseModel):
+class ModifierModel(BaseModel):
     MOD_CHOICES = (
         (1, 'set'),
         (2, 'unset'),
     )
     name = CharField(max_length=255)
-    modifier = IntegerField(choices=MOD_CHOICES)
+    operator = IntegerField(choices=MOD_CHOICES)
     value = TextField(blank=True)
     priority = IntegerField(default=0)
 
     def __unicode__(self):
-        return u'%s %s %s' % (self.name, self.modifier, self.value)
+        return u'%s %s %s' % (self.name, self.operator, self.value)
 
     class Meta:
         abstract = True
