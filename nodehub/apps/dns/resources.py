@@ -4,14 +4,14 @@ from nodehub.apps.dns import models
 
 class Zone(resources.ModelResource):
     model = models.Zone
-    fields = ('name', 'ttl', 'records', 'url')
+    fields = ('name', 'ttl', 'records', 'url', 'created', 'updated')
 
     def records(self, instance):
         return reverse('records_api', kwargs={'zone__name': instance.name})
 
 class Record(resources.ModelResource):
     model = models.Record
-    fields = ('name', 'type', 'content', 'priority', 'ttl', 'zone', 'url')
+    fields = ('name', 'type', 'content', 'priority', 'ttl', 'zone', 'url', 'created', 'updated')
 
     def zone(self, instance):
         return reverse('zone_api', kwargs={'name': instance.zone.name})

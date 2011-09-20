@@ -1,5 +1,5 @@
 from django.contrib import admin
-from nodehub.apps.nodes import models
+from nodehub.apps.node import models
 
 class Interface(admin.TabularInline):
     model = models.Interface
@@ -34,5 +34,5 @@ class Group(admin.ModelAdmin):
     filter_horizontal = ('nodes',)
     inlines = [GroupModifier]
 
-admin.site.register(models.Node, Node)
+admin.site.register(models.Host, Node)
 admin.site.register(models.Group, Group)

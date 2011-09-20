@@ -9,6 +9,9 @@ class Node(models.BaseModel):
     class Meta:
         ordering = ['name']
 
+class Host(Node):
+    pass
+
 class NodeModifier(models.ModifierModel):
     node = models.ForeignKey(Node)
 

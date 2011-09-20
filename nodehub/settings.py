@@ -88,7 +88,7 @@ INSTALLED_APPS = (
     'djangorestframework',
     'nodehub.apps.dns',
     'nodehub.apps.ip',
-    'nodehub.apps.nodes',
+    'nodehub.apps.node',
 )
 
 LOGGING = {

@@ -6,8 +6,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
-    (r'^api/nodes', include('nodehub.apps.nodes.urls_api')),
-    (r'^', include('nodehub.apps.nodes.urls')),
+    # api
     (r'^api/dns', include('nodehub.apps.dns.urls_api')),
-    (r'^', include('nodehub.apps.dns.urls')),
+    (r'^api/node', include('nodehub.apps.node.urls_api')),
+    # gui
+    (r'^dns', include('nodehub.apps.dns.urls')),
+    (r'^node', include('nodehub.apps.node.urls')),
 )
